@@ -13,9 +13,25 @@
 <br/>
 <br/>
 <br/>
-<input type="number">
+<input type="number" id="input1"  />
+<p id="demo" onclick="myFunction()">Hehey</p>
+<button onclick="compare()">Test</button>
+<br>
+
 <script>
 
+function myFunction(){
+	document.getElementById('demo').style.color = "red";
+}
+	
+function compare(){
+	var input1 = document.getElementById("input1");
+	var demo1 = document.getElementById("demo");
+	if (input1.value == y ){
+		demo1.innerHTML = "Good";
+		return false;
+	}
+}
 
 </script>
 <canvas id="myCanvas" width="2000" height="15" >

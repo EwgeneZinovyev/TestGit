@@ -17,4 +17,3 @@ var b = y - x;
 document.write("b = ");
 document.write(b);
 
-
