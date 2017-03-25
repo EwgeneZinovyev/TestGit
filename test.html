@@ -8,6 +8,15 @@
 
 </head>
 <body>
+<p id="demo2" onclick="myFunction()">
+<script> document.write(x); </script> 
+</p>
+<p id="demo3" onclick="myFunction()">
+<script> document.write(b); </script> 
+</p>
+<p id="demo4" onclick="myFunction()">
+<script> document.write(y); </script> 
+</p>
 <br/>
 <br/>
 <br/>
@@ -20,15 +29,17 @@
 
 <script>
 
+
+
 function myFunction(){
 	document.getElementById('demo').style.color = "red";
 }
 	
 function compare(){
 	var input1 = document.getElementById("input1");
-	var demo1 = document.getElementById("demo");
-	if (input1.value == y ){
-		demo1.innerHTML = "Good";
+	if (input1.value != x ){
+		input1.style.backgroundColor = "red";
+		demo2.style.color = "yellow";
 		return false;
 	}
 }
