@@ -6,14 +6,9 @@ function randomInteger(min, max) {
     c = Math.floor(c);
     return c;
   }
-document.write("a = ");
-document.write(x = randomInteger(6, 9) );
-document.write("<br/>");
-document.write("a+b = ");
-document.write(y = randomInteger(11, 14) );
-document.write("<br/>");
 
+x = randomInteger(6, 9);
+y = randomInteger(11, 14) ;
 var b = y - x;
-document.write("b = ");
-document.write(b);
+
 
