@@ -8,13 +8,13 @@
 
 </head>
 <body>
-<center id="demo2" onclick="myFunction()">
+<center id="demo2" >
 <script> document.write(x); </script> 
 </center>
-<center id="demo3" onclick="myFunction()">
+<center id="demo3" >
 <script> document.write(b); </script> 
 </center>
-<center id="demo4" onclick="myFunction()">
+<center id="demo4" >
 <script> document.write(y); </script> 
 </center>
 <br/>
@@ -22,15 +22,16 @@
 <br/>
 <br/>
 <br/>
-<input type="number" id="input1" />
-
+<input type="number" id="input1" class="first"/>
+<input type="number" id="input2" class="second"/>
 
 <br>
 
 <script>
-
-function compare(){
-	var input1 = document.getElementById("input1");
+var input1 = document.getElementById("input1");
+var input2 = document.getElementById("input2");
+var inputChange = doc.getElementById("inputChange");
+function compare1(){
 	if (input1.value != x ){
 		input1.style.backgroundColor = "red";
 		demo2.style.color = "yellow";
@@ -42,11 +43,24 @@ function compare(){
 		}
 	
 }
+function compare2(){
+	if (input2.value != b ){
+		input2.style.backgroundColor = "red";
+		demo3.style.color = "yellow";
+		return false;
+		}
+		else{
+		input2.style.backgroundColor = "";
+		demo3.style.color = "";
+		}
+	
+}
 
 </script>
 <canvas id="myCanvas" width="2000" height="15" >
 </canvas>
 <script>
+
 
 if (x == 6){
 var line = document.getElementById("myCanvas");
@@ -87,7 +101,7 @@ context.moveTo(35,10);
 	context.lineTo(387,2);
 	context.stroke();
 	}
-	
+
 if (y == 11){
 var line = document.getElementById("myCanvas");
 var context = line.getContext("2d");
@@ -130,6 +144,7 @@ context.moveTo(35,10);
 <br/>
 <img src="sprite.png">
 <br/>
-<button onclick="compare()">Test</button>
+<button onclick="compare1()">Test1</button>
+<button onclick="compare2()">Test2</button>
 </body>
 </html>

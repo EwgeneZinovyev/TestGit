@@ -1,7 +1,14 @@
-input{
+input.first{
 	background-color:#B5B5B5;
 	width: 40px;
 	position: relative;
 	float: left;
 	left: 130px;
+}
+input.second{
+	background-color:#B5B5B5;
+	width: 40px;
+	position: relative;
+	float: left;
+	left: 400px;
 }
