@@ -8,15 +8,15 @@
 
 </head>
 <body>
-<p id="demo2" onclick="myFunction()">
+<center id="demo2" onclick="myFunction()">
 <script> document.write(x); </script> 
-</p>
-<p id="demo3" onclick="myFunction()">
+</center>
+<center id="demo3" onclick="myFunction()">
 <script> document.write(b); </script> 
-</p>
-<p id="demo4" onclick="myFunction()">
+</center>
+<center id="demo4" onclick="myFunction()">
 <script> document.write(y); </script> 
-</p>
+</center>
 <br/>
 <br/>
 <br/>
@@ -29,8 +29,6 @@
 
 <script>
 
-
-
 function myFunction(){
 	document.getElementById('demo').style.color = "red";
 }
@@ -41,7 +39,12 @@ function compare(){
 		input1.style.backgroundColor = "red";
 		demo2.style.color = "yellow";
 		return false;
-	}
+		}
+		else{
+		input1.style.backgroundColor = "";
+		demo2.style.color = "";
+		}
+	
 }
 
 </script>
