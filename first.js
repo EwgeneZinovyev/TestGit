@@ -49,12 +49,16 @@ function bindEvents() {
     $inputThird.change(function() {
     $(this).css('background-color', '');
     $('.task > div:nth-child(5)').css('color', 'black');
+	$('.task > div:nth-child(5)').text(taskVariables.z).show();
+	
 
     var val = parseInt($(this).val(), 10);
     if (taskVariables.z !== val) {
       $(this).css('background-color', 'red');
       $('.task > div:nth-child(5)').css('color', 'yellow');
-    } 
+    } else {
+		step4();
+	}
   });
 }
 
@@ -108,6 +112,10 @@ function step3() {
   $('.second').hide();
   $('.input-second-container .text').text(taskVariables.y);
   $('.third').show();
+}
+
+function step4() { 
+  $('.third').hide();
 }
 
 function generateTask() {
