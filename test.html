@@ -1,156 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset = "UTF-8" />
-	<link href = "one.css" rel = "stylesheet" type = "text/css" />
-	<script type = "text/javascript" src = "first.js"></script>
-	
-
+    <meta charset="UTF-8" />
+    <link href="one.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-<center id="demo2" >
-<script> document.write(x); </script> 
-</center>
-<center>
-<script> document.write("+"); </script> 
-</center>
-<center id="demo3" >
-<script> document.write(b); </script> 
-</center>
-<center>
-<script> document.write("="); </script> 
-</center>
-<center id="demo4" >
-<script> document.write(y); </script> 
-</center>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<input type="number" id="input1" class="first"/>
-<input type="number" id="input2" class="second"/>
+    <div class="task">
+    </div>
 
-<br>
+    <div class="input-first-container">
+      <input type="number" class="first" />
+      <div class="text">
+      </div>
+    </div>
+    <div class="input-second-container">
+      <input type="number" class="second" />
+      <div class="text">
+      </div>
+    </div>
 
-<script>
-var input1 = document.getElementById("input1");
-var input2 = document.getElementById("input2");
-var inputChange = doc.getElementById("inputChange");
-function compare1(){
-	if (input1.value != x ){
-		input1.style.backgroundColor = "red";
-		demo2.style.color = "yellow";
-		return false;
-		}
-		else{
-		input1.style.backgroundColor = "";
-		demo2.style.color = "";
-		}
-	
-}
-function compare2(){
-	if (input2.value != b ){
-		input2.style.backgroundColor = "red";
-		demo3.style.color = "yellow";
-		return false;
-		}
-		else{
-		input2.style.backgroundColor = "";
-		demo3.style.color = "";
-		}
-	
-}
-
-</script>
-<canvas id="myCanvas" width="2000" height="15" >
-</canvas>
-<script>
-
-
-if (x == 6){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "red";
-context.moveTo(35,10);
-	context.lineTo(270,10);
-	context.lineTo(270,2);
-	context.stroke();
-	}
-	
-if (x == 7){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "red";
-context.moveTo(35,10);
-	context.lineTo(308,10);
-	context.lineTo(308,2);
-	context.stroke();
-	}
-		
-if (x == 8){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "red";
-context.moveTo(35,10);
-	context.lineTo(348,10);
-	context.lineTo(348,2);
-	context.stroke();
-	}
-	
-if (x == 9){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "red";
-context.moveTo(35,10);
-	context.lineTo(387,10);
-	context.lineTo(387,2);
-	context.stroke();
-	}
-
-if (y == 11){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "green";
-context.moveTo(35,10);
-	context.lineTo(466,10);
-	context.stroke();
-	}
-	
-if (y == 12){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "green";
-context.moveTo(35,10);
-	context.lineTo(505,10);
-	context.stroke();
-	}
-
-if (y == 13){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "green";
-context.moveTo(35,10);
-	context.lineTo(544,10);
-	context.stroke();
-	}
-	
-if (y == 14){
-var line = document.getElementById("myCanvas");
-var context = line.getContext("2d");
-context.strokeStyle = "green";
-context.moveTo(35,10);
-	context.lineTo(583,10);
-	context.stroke();
-	}
-	
-</script>
-
-
-<br/>
-<img src="sprite.png">
-<br/>
-<button onclick="compare1()">Test1</button>
-<button onclick="compare2()">Test2</button>
+    <canvas id="myCanvas" width="2000" height="15">
+	</canvas>
+    <img src="sprite.png">
+    <br/>
+   
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="first.js"></script>
 </body>
+
 </html>
