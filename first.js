@@ -14,7 +14,10 @@ function bindEvents() {
   var $inputFirst = $('.first');
   var $inputSecond = $('.second');
   $inputSecond.hide();
-
+  var $inputThird = $('.third');
+  $inputThird.hide();
+  $('.task > div:nth-child(5)').html('??');
+  
   $inputFirst.change(function() {
     $(this).css('background-color', '');
     $('.task > div:first-child').css('color', 'black');
@@ -32,6 +35,7 @@ function bindEvents() {
     var $div = $('.task > div:nth-child(3)'); 
     $(this).css('background-color', '');
     $div.css('color', 'black');
+	$('.task > div:nth-child(5)').html('??').hide();
 
     var val = parseInt($(this).val(), 10);
     if (taskVariables.y !== val) {
@@ -40,6 +44,17 @@ function bindEvents() {
     } else {
       step3();
     }
+  });
+  
+    $inputThird.change(function() {
+    $(this).css('background-color', '');
+    $('.task > div:nth-child(5)').css('color', 'black');
+
+    var val = parseInt($(this).val(), 10);
+    if (taskVariables.z !== val) {
+      $(this).css('background-color', 'red');
+      $('.task > div:nth-child(5)').css('color', 'yellow');
+    } 
   });
 }
 
@@ -92,6 +107,7 @@ function step2() {
 function step3() {
   $('.second').hide();
   $('.input-second-container .text').text(taskVariables.y);
+  $('.third').show();
 }
 
 function generateTask() {
@@ -149,6 +165,7 @@ function renderTask() {
     $div.text(text);
 
     $('.task').append($div);
+	
   }
 }
 
