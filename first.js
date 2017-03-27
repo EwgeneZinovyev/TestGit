@@ -35,8 +35,7 @@ function bindEvents() {
     var $div = $('.task > div:nth-child(3)'); 
     $(this).css('background-color', '');
     $div.css('color', 'black');
-	$('.task > div:nth-child(5)').html('??').hide();
-
+	
     var val = parseInt($(this).val(), 10);
     if (taskVariables.y !== val) {
       $(this).css('background-color', 'red');
@@ -51,7 +50,6 @@ function bindEvents() {
     $('.task > div:nth-child(5)').css('color', 'black');
 	$('.task > div:nth-child(5)').text(taskVariables.z).show();
 	
-
     var val = parseInt($(this).val(), 10);
     if (taskVariables.z !== val) {
       $(this).css('background-color', 'red');
@@ -111,6 +109,7 @@ function step2() {
 function step3() {
   $('.second').hide();
   $('.input-second-container .text').text(taskVariables.y);
+  $('.task > div:nth-child(5)').html('??').hide();
   $('.third').show();
 }
 
@@ -171,7 +170,6 @@ function renderTask() {
       'class': 'task-block',
     });
     $div.text(text);
-
     $('.task').append($div);
 	
   }
