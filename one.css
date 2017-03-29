@@ -42,3 +42,11 @@
   position: relative;
 }
 
+.container {
+	width: 875px;
+	margin: auto;
+}
+
+.invalid-value {
+	background-color: red;
+}

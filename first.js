@@ -18,17 +18,22 @@ function bindEvents() {
   $inputThird.hide();
   $('.task > div:nth-child(5)').html('??');
   
-  $inputFirst.change(function() {
+  function doSmth(x, y) {
+    var $div = $('.task > div:nth-child(3)'); 
     $(this).css('background-color', '');
-    $('.task > div:first-child').css('color', 'black');
-
+    $div.css('color', 'black');
+	
     var val = parseInt($(this).val(), 10);
-    if (taskVariables.x !== val) {
+    if (taskVariables.y !== val) {
       $(this).css('background-color', 'red');
-      $('.task > div:first-child').css('color', 'yellow');
+      $div.css('color', 'yellow');
     } else {
-      step2();
-    }
+      step3();
+    }	  
+  }
+  
+  $inputFirst.keyup(function() {
+	doSmth();
   });
 
   $inputSecond.change(function() {
@@ -104,7 +109,27 @@ function step2() {
 			context.lineTo(582, 2);
             context.stroke();
         }
+		
+		switch(taskVariables.z) {
+		  case 11:
+			drawLine(466);
+			break;
+		  case 12:
+			drawLine(505);
+			break;
+		}
 }
+
+function drawLine(xCoord) {
+            var line = document.getElementById("myCanvas");
+            var context = line.getContext("2d");
+            context.strokeStyle = "green";
+            context.moveTo(35, 10);
+            context.lineTo(582, 10);
+			context.lineTo(xCoord, 2);
+            context.stroke();
+}
+
 
 function step3() {
   $('.second').hide();
