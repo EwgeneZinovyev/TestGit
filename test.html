@@ -9,7 +9,9 @@
 <body>
     <div class="container">
 		<input type="number" class="third" />
-		<div class="task">
+		<div class="task-container">
+		  <div class="task">
+		  </div>
 		</div>
 		
 		<div class="input-first-container">
@@ -23,9 +25,11 @@
 		  </div>
 		</div>
 		
-		<canvas id="myCanvas" width="2000" height="15">
-		</canvas>
-		<img src="sprite.png">
+    <div class="canvas-container">
+      <canvas id="myCanvas" width="440">
+      </canvas>
+      <img src="sprite.png" class="ruler" alt="reler">
+    </div>
 		<br/>   
 		<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 		<script type="text/javascript" src="first.js"></script>

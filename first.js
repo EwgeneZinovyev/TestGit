@@ -8,60 +8,43 @@ $(document).ready(function() {
   generateTask();
   renderTask();
   bindEvents();
+  step1();
 });
+
+function step1() {
+  drawArc(0, taskVariables.x);
+}
+
+function doSmth($input, currentValue, $displayValue, funStep) {
+  var inputValue = parseInt($input.val(), 10);
+
+  if (inputValue !== currentValue) {
+    $input.addClass('input-error'); 
+    $displayValue.addClass('text-error');
+  } else {
+    $displayValue.removeClass('text-error');
+    funStep();
+  }	  
+}
 
 function bindEvents() {
   var $inputFirst = $('.first');
   var $inputSecond = $('.second');
-  $inputSecond.hide();
   var $inputThird = $('.third');
-  $inputThird.hide();
-  $('.task > div:nth-child(5)').html('??');
-  
-  function doSmth(x, y) {
-    var $div = $('.task > div:nth-child(3)'); 
-    $(this).css('background-color', '');
-    $div.css('color', 'black');
-	
-    var val = parseInt($(this).val(), 10);
-    if (taskVariables.y !== val) {
-      $(this).css('background-color', 'red');
-      $div.css('color', 'yellow');
-    } else {
-      step3();
-    }	  
-  }
   
   $inputFirst.keyup(function() {
-	doSmth();
-  });
-
-  $inputSecond.change(function() {
-    var $div = $('.task > div:nth-child(3)'); 
-    $(this).css('background-color', '');
-    $div.css('color', 'black');
-	
-    var val = parseInt($(this).val(), 10);
-    if (taskVariables.y !== val) {
-      $(this).css('background-color', 'red');
-      $div.css('color', 'yellow');
-    } else {
-      step3();
-    }
+    var $displayValue = $('.task > div:nth-child(1)'); 
+    doSmth($(this), taskVariables.x, $displayValue, step2);
   });
   
-    $inputThird.change(function() {
-    $(this).css('background-color', '');
-    $('.task > div:nth-child(5)').css('color', 'black');
-	$('.task > div:nth-child(5)').text(taskVariables.z).show();
-	
-    var val = parseInt($(this).val(), 10);
-    if (taskVariables.z !== val) {
-      $(this).css('background-color', 'red');
-      $('.task > div:nth-child(5)').css('color', 'yellow');
-    } else {
-		step4();
-	}
+  $inputSecond.keyup(function() {
+    var $displayValue = $('.task > div:nth-child(3)'); 
+    doSmth($(this), taskVariables.y, $displayValue, step3);
+  });
+  
+  $inputThird.keyup(function() {
+    var $displayValue = $('.task > div:nth-child(5)'); 
+    doSmth($(this), taskVariables.z, $displayValue, step4);
   });
 }
 
@@ -69,126 +52,44 @@ function step2() {
   $('.first').hide();
   $('.input-first-container .text').text(taskVariables.x);
   $('.second').show();
-  
-		if (taskVariables.z == 11) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(466, 10);
-			context.lineTo(466, 2);
-            context.stroke();
-        }
-
-        if (taskVariables.z == 12) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(505, 10);
-			context.lineTo(505, 2);
-            context.stroke();
-        }
-
-        if (taskVariables.z == 13) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(544, 10);
-			context.lineTo(544, 2);
-            context.stroke();
-        }
-
-        if (taskVariables.z == 14) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(582, 10);
-			context.lineTo(582, 2);
-            context.stroke();
-        }
-		
-		switch(taskVariables.z) {
-		  case 11:
-			drawLine(466);
-			break;
-		  case 12:
-			drawLine(505);
-			break;
-		}
+  drawArc(taskVariables.x, taskVariables.z);
 }
-
-function drawLine(xCoord) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(582, 10);
-			context.lineTo(xCoord, 2);
-            context.stroke();
-}
-
 
 function step3() {
   $('.second').hide();
   $('.input-second-container .text').text(taskVariables.y);
-  $('.task > div:nth-child(5)').html('??').hide();
+  $('.task > div:nth-child(5)').hide();
   $('.third').show();
 }
 
 function step4() { 
   $('.third').hide();
+  $('.task > div:nth-child(5)').show(taskVariables.z);
+}
+
+function drawArc(startValue, endValue) {
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+  var stepValue = canvas.width / 22.5;
+
+  var centerValue = (stepValue * (((endValue - startValue) / 2) + 1 + startValue));
+  var radius = ((endValue - startValue) / 2) * stepValue;
+  context.beginPath();
+  context.arc(centerValue, canvas.height, radius, Math.PI, 0, false);
+  context.lineWidth = 2;
+  context.strokeStyle = 'red';
+  context.stroke();
 }
 
 function generateTask() {
   taskVariables.x = randomInteger(6, 9);
   taskVariables.z = randomInteger(11, 14);
   taskVariables.y = taskVariables.z - taskVariables.x;
-  
-		if (taskVariables.x == 6) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(270, 10);
-            context.lineTo(270, 2);
-            context.stroke();
-        }
-		if (taskVariables.x == 7) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(308, 10);
-            context.lineTo(308, 2);
-            context.stroke();
-        }
-
-		if (taskVariables.x == 8) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(348, 10);
-            context.lineTo(348, 2);
-            context.stroke();
-        }
-
-		if (taskVariables.x == 9) {
-            var line = document.getElementById("myCanvas");
-            var context = line.getContext("2d");
-            context.strokeStyle = "green";
-            context.moveTo(35, 10);
-            context.lineTo(387, 10);
-            context.lineTo(387, 2);
-            context.stroke();
-        }
 }
 
 function renderTask() {
   var array = getTaskArray();
+
   for(var i = 0; i < array.length; i++) {
     var text = array[i];
     var $div = $('<div>', {
@@ -196,12 +97,17 @@ function renderTask() {
     });
     $div.text(text);
     $('.task').append($div);
-	
   }
 }
 
 function getTaskArray() {
-  var array = [taskVariables.x, '+', taskVariables.y, '=', taskVariables.z];
+  var array = [
+    taskVariables.x,
+    '+',
+    taskVariables.y,
+    '=',
+    '?'
+  ];
 
   return array;
 }
@@ -211,5 +117,4 @@ function randomInteger(min, max) {
   a = Math.floor(a);
   return a;
 }
-
 

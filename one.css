@@ -1,26 +1,39 @@
-.first{
+.first {
 	background-color:#B5B5B5;
 	width: 40px;
 	position: relative;
 }
 
-.second{
+.input-error {
+  color: red;
+}
+
+.text-error {
+  background-color: yellow;
+}
+
+.second {
 	background-color:#B5B5B5;
 	width: 40px;
 	position: relative;
-	
+  display: none;
 }
+
 .third {
 	background-color:#B5B5B5;
 	width: 40px;
 	position: relative;
 	top: 27px;
 	margin-left: 365px;
+  display: none;
+  z-index: 10;
 }
 
 .task {
-  margin-left: 300px;
-  margin-bottom: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .task-block {
@@ -43,10 +56,34 @@
 }
 
 .container {
-	width: 875px;
-	margin: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.task-container {
+  position: relative;
+  height: 50px;
+  width: 100%;
+}
+
+.canvas-container {
+  position: relative;
+  height: 100px;
+  width: 440px;
+  margin: 0 auto;
+}
+
+.ruler {
+  width: 100%;
 }
 
 .invalid-value {
 	background-color: red;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
