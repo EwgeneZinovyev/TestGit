@@ -64,7 +64,7 @@ function step3() {
 
 function step4() { 
   $('.third').hide();
-  $('.task > div:nth-child(5)').show(taskVariables.z);
+  $('.task > div:nth-child(5)').show().text(taskVariables.z);
 }
 
 function drawArc(startValue, endValue) {
